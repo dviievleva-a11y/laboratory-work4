@@ -1,0 +1,107 @@
+  //Proc22.
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+const double PI = 3.1415926;
+
+void CylinderVH(double r, double h, double &V, double &S) {
+    V = PI * r * r * h;         
+    S = 2 * PI * r * (r + h);    
+}
+
+int main() {
+    double r1, h1, r2, h2, r3, h3;
+    double V1, S1, V2, S2, V3, S3;
+
+    cout << "Введіть радіус і висоту 1-го циліндра: ";
+    cin >> r1 >> h1;
+    cout << "Введіть радіус і висоту 2-го циліндра: ";
+    cin >> r2 >> h2;
+    cout << "Введіть радіус і висоту 3-го циліндра: ";
+    cin >> r3 >> h3;
+
+    CylinderVH(r1, h1, V1, S1);
+    CylinderVH(r2, h2, V2, S2);
+    CylinderVH(r3, h3, V3, S3);
+
+    cout << "\nРезультати:\n";
+    cout << "1-й циліндр:  V = " << V1 << ",  S = " << S1 << endl;
+    cout << "2-й циліндр:  V = " << V2 << ",  S = " << S2 << endl;
+    cout << "3-й циліндр:  V = " << V3 << ",  S = " << S3 << endl;
+
+    return 0;
+}
+
+
+  //Proc49.
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+double CalcMedian(double a, double b, double c) {
+    return 0.5 * sqrt(2 * b * b + 2 * c * c - a * a);
+}
+
+int main() {
+    double a1, b1, c1;
+    double a2, b2, c2;
+    double a3, b3, c3;
+
+    cout << "Введіть сторони 1-го трикутника (a b c): ";
+    cin >> a1 >> b1 >> c1;
+
+    cout << "Введіть сторони 2-го трикутника (a b c): ";
+    cin >> a2 >> b2 >> c2;
+
+    cout << "Введіть сторони 3-го трикутника (a b c): ";
+    cin >> a3 >> b3 >> c3;
+
+    double m1 = CalcMedian(a1, b1, c1);
+    double m2 = CalcMedian(a2, b2, c2);
+    double m3 = CalcMedian(a3, b3, c3);
+
+    cout << fixed << setprecision(4);
+    cout << "\nРезультати:\n";
+    cout << "1-й трикутник: ma = " << m1 << endl;
+    cout << "2-й трикутник: ma = " << m2 << endl;
+    cout << "3-й трикутник: ma = " << m3 << endl;
+
+    return 0;
+}
+
+
+  //Proc12.
+#include <iostream>
+using namespace std;
+
+// Процедура для впорядкування трьох чисел за зростанням
+void SortInc3(double &A, double &B, double &C) {
+    double temp;
+    if (A > B) { temp = A; A = B; B = temp; }
+    if (B > C) { temp = B; B = C; C = temp; }
+    if (A > B) { temp = A; A = B; B = temp; }
+}
+
+int main() {
+    double A1, B1, C1;
+    double A2, B2, C2;
+
+    cout << "Введіть три числа для 1-го набору (A1, B1, C1): ";
+    cin >> A1 >> B1 >> C1;
+
+    cout << "Введіть три числа для 2-го набору (A2, B2, C2): ";
+    cin >> A2 >> B2 >> C2;
+
+    // Викликаємо процедуру сортування
+    SortInc3(A1, B1, C1);
+    SortInc3(A2, B2, C2);
+
+    // Виведення результатів
+    cout << "\nПісля впорядкування:\n";
+    cout << "1-й набір: " << A1 << "  " << B1 << "  " << C1 << endl;
+    cout << "2-й набір: " << A2 << "  " << B2 << "  " << C2 << endl;
+
+    return 0;
+}
